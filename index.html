@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Pattern Design Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="start-screen">
+        <h1 class="game-title">
+            <span class="dark-text">Dark</span>
+            <span class="pattern-text">Pattern</span>
+            <span class="design-text">Design</span>
+            <span class="game-text">Game</span>
+        </h1>
+        <p class="subtitle">利益か倫理か、あなたはどちらを選ぶ？</p>
+        <button id="start-button" class="pulse">ゲームを開始</button>
+    </div>
+    <div id="game-screen" style="display: none;">
+        <header>
+            <h1 class="game-title">
+                <span class="dark-text">Dark</span>
+                <span class="pattern-text">Pattern</span>
+                <span class="design-text">Design</span>
+                <span class="game-text">Game</span>
+            </h1>
+        </header>
+        <main class="game-main">
+            <div class="game-container">
+                <p class="instruction">ECサイトのデザインオプションを選んでください</p>
+                <div class="design-options">
+                    <div class="design-option">
+                        <h3>デザインA</h3>
+                        <div class="ui-preview">
+                            <div class="product-info">
+                                <img src="image/earphone.png" alt="ノイズキャンセリングイヤホン" class="product-image">
+                                <h4>超高性能ノイズキャンセリングイヤホン</h4>
+                                <p class="price"><span class="original-price">¥30,000</span> <span class="discounted-price">¥19,800</span></p>
+                                <p class="campaign">期間限定セール中！</p>
+                            </div>
+                            <button class="add-to-cart prominent">カートに追加する</button>
+                            <button class="no-thanks subtle">いいえ、結構です</button>
+                        </div>
+                        <button id="design-a" class="design-button">このデザインを選択</button>
+                    </div>
+                    <div class="design-option">
+                        <h3>デザインB</h3>
+                        <div class="ui-preview">
+                            <div class="product-info">
+                                <img src="image/earphone.png" alt="ノイズキャンセリングイヤホン" class="product-image">
+                                <h4>超高性能ノイズキャンセリングイヤホン</h4>
+                                <p class="price"><span class="original-price">¥30,000</span> <span class="discounted-price">¥19,800</span></p>
+                                <p class="campaign">期間限定セール中！</p>
+                            </div>
+                            <button class="add-to-cart">カートに追加する</button>
+                            <button class="no-thanks">いいえ、結構です</button>
+                        </div>
+                        <button id="design-b" class="design-button">このデザインを選択</button>
+                    </div>
+                </div>
+            </div>
+            <div id="profit-section">
+                <h2>利益: <span id="profit-amount" class="profit-amount">¥0</span></h2>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
