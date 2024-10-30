@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- メタ情報とスタイルシートの読み込み -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Pattern Design Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- スタート画面 -->
+    <div id="start-screen">
+        <h1 class="game-title">
+            <!-- ゲームタイトルのアニメーション付きテキスト -->
+            <span class="dark-text">Dark</span>
+            <span class="pattern-text">Pattern</span>
+            <span class="design-text">Design</span>
+            <span class="game-text">Game</span>
+        </h1>
+        <p class="subtitle">~悪質なデザインの方法とは~</p>
+        <button id="start-button" class="pulse">ゲームを開始</button>
+    </div>
+
+    <!-- 説明画面（初期状態では非表示） -->
+    <div id="tutorial-screen" style="display: none;">
+        <div class="tutorial-container">
+            <h2 class="tutorial-title">ゲーム説明</h2>
+            
+            <div class="tutorial-section">
+                <h3>ダークパターンとは？</h3>
+                <p>ダークパターンとは、ユーザーが意図していない、あるいは有害になり得る意思決定をするように強制したり、操作したり、欺いたりすることによって、オンラインサービスの提供者に利益をもたらすユーザーインターフェースデザインのことです。</p>
+            </div>
+
+            <div class="tutorial-section">
+                <h3>デザイナーの役割</h3>
+                <p>デザイナーは様々なデザインでもって、より多くの利益を得ようとしています。</p>
+            </div>
+
+            <div class="tutorial-section">
+                <h3>あなたの役割</h3>
+                <p>このゲームでは、あなたがデザイナーの立場に立って、より多くの利益につながるお買い物サイトをデザインしてみましょう！</p>
+            </div>
+
+            <button id="start-game" class="next-button">ゲームを始める</button>
+        </div>
+    </div>
+
+    <!-- ゲーム画面（初期状態では非表示） -->
+    <div id="game-screen" style="display: none;">
+        <header>
+            <!-- ゲーム画面のヘッダー -->
+            <h1 class="game-title">
+                <span class="dark-text">Dark</span>
+                <span class="pattern-text">Pattern</span>
+                <span class="design-text">Design</span>
+                <span class="game-text">Game</span>
+            </h1>
+        </header>
+        <main class="game-main">
+            <div class="game-container">
+                <p class="instruction">ECサイトのデザインオプションを選んでください</p>
+                <!-- デザイン選択オプション -->
+                <div class="design-options">
+                    <!-- デザインA（ダークパターン） -->
+                    <div class="design-option">
+                        <h3>デザインA</h3>
+                        <div class="ui-preview">
+                            <!-- 商品情報 -->
+                            <div class="product-info">
+                                <img src="image/earphone.png" alt="ノイズキャンセリングイヤホン" class="product-image">
+                                <h4>超高性能ノイズキャンセリングイヤホン</h4>
+                                <p class="price"><span class="original-price">¥30,000</span> <span class="discounted-price">¥19,800</span></p>
+                                <p class="campaign">期間限定セール中！</p>
+                            </div>
+                            <!-- ダークパターンを適用したボタン -->
+                            <button class="add-to-cart prominent">カートに追加する</button>
+                            <button class="no-thanks subtle">いいえ、結構です</button>
+                        </div>
+                        <button id="design-a" class="design-button">このデザインを選択</button>
+                    </div>
+                    <!-- デザインB（エシカルデザイン） -->
+                    <div class="design-option">
+                        <h3>デザインB</h3>
+                        <div class="ui-preview">
+                            <!-- 商品情報（デザインAと同じ） -->
+                            <div class="product-info">
+                                <img src="image/earphone.png" alt="ノイズキャンセリングイヤホン" class="product-image">
+                                <h4>超高性能ノイズキャンセリングイヤホン</h4>
+                                <p class="price"><span class="original-price">¥30,000</span> <span class="discounted-price">¥19,800</span></p>
+                                <p class="campaign">期間限定セール中！</p>
+                            </div>
+                            <!-- エシカルデザインを適用したボタン -->
+                            <button class="add-to-cart">カートに追加する</button>
+                            <button class="no-thanks">いいえ、結構です</button>
+                        </div>
+                        <button id="design-b" class="design-button">このデザインを選択</button>
+                    </div>
+                </div>
+            </div>
+            <!-- 利益表示セクション -->
+            <div id="profit-section">
+                <h2>利益: <span id="profit-amount" class="profit-amount">¥0</span></h2>
+            </div>
+        </main>
+    </div>
+
+    <!-- 既存のコード内のprofit-sectionの前に追加 -->
+    <div id="dark-pattern-button-container" style="display: none;">
+        <button id="show-dark-pattern" class="dark-pattern-button">ダークパターンはどこ？</button>
+    </div>
+
+    <!-- body終了タグの前に追加 -->
+    <div id="dark-pattern-overlay" class="overlay" style="display: none;">
+        <div class="dark-pattern-explanation">
+            <h2>False hierarchy（偽の階層）</h2>
+            <p>「False hierarchy（偽の階層）」は、ユーザーインターフェースやデザインにおいて、視覚的な要素やレイアウトを使って、本来の重要度や関連性が異なる情報や選択肢をあたかも同じように見せたり、逆に、重要度の低い要素を目立たせたりするダークパターンの一つです。</p>
+            
+            <h3>具体的な説明</h3>
+            <p>False hierarchy（偽の階層）では、以下のような手法でユーザーを誤った認識に導くことが行われます。</p>
+            <ul>
+                <li>不正確な強調: 重要度が低い情報や選択肢を、フォントサイズや色、配置などによって不必要に目立たせ、重要だと感じさせる。</li>
+                <li>選択肢の視覚的な均等化: 実際には重要度が異なる選択肢を、デザイン上同じように見せることで、どれを選んでも結果が同じように見える錯覚を与える。</li>
+                <li>誤解を招くレイアウト: 重要な選択肢や情報が目立たない場所に配置され、ユーザーが誤った判断をしやすくなるようにする。</li>
+            </ul>
+            <button id="close-explanation" class="close-button">閉じる</button>
+        </div>
+    </div>
+
+    <!-- JavaScriptファイルの読み込み -->
+    <script src="script.js"></script>
+</body>
+</html>

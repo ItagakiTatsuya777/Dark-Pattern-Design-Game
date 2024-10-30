@@ -1,0 +1,504 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0a0a1a;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#start-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(45deg, #0a0a1a, #1a1a2e);
+}
+
+.game-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.dark-text, .pattern-text, .design-text, .game-text {
+    display: inline-block;
+    animation: textFloat 4s ease-in-out infinite;
+}
+
+.dark-text { color: #ff6b6b; animation-delay: 0s; }
+.pattern-text { color: #4ecdc4; animation-delay: 0.5s; }
+.design-text { color: #45b7d1; animation-delay: 1s; }
+.game-text { color: #f7fff7; animation-delay: 1.5s; }
+
+@keyframes textFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes textFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    opacity: 0.8;
+}
+
+#start-button {
+    background-color: #e94560;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: pulse 2s infinite;
+}
+
+#start-button:hover {
+    background-color: #ff6b6b;
+    transform: scale(1.05);
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(233, 69, 96, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(233, 69, 96, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(233, 69, 96, 0); }
+}
+
+#game-screen {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#game-screen header {
+    padding: 20px 0;
+    background-color: #000000;
+    text-align: center;
+}
+
+#game-screen .game-title {
+    font-size: 2rem;
+    margin: 0;
+}
+
+#game-screen .dark-text,
+#game-screen .pattern-text,
+#game-screen .design-text,
+#game-screen .game-text {
+    animation: none;  /* ゲーム画面でのアニメーションを無効化 */
+    display: inline;  /* インラインに戻す */
+}
+
+.game-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    padding: 2rem;
+}
+
+.game-container {
+    max-width: 900px;
+    width: 90%;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.instruction {
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+}
+
+.design-button {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    background-color: #4a4a4a;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.design-button:hover {
+    background-color: #5a5a5a;
+    transform: scale(1.05);
+}
+
+#profit-section {
+    position: fixed;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: #2a2a2a;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.profit-amount {
+    color: #00ff00;
+    font-weight: bold;
+    font-size: 2rem;
+    display: block;
+    margin-top: 1rem;
+}
+
+button {
+    background-color: #e94560;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    margin: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background-color: #ff6b6b;
+    transform: scale(1.05);
+}
+
+.design-options {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+
+.design-option {
+    text-align: center;
+    width: 48%;
+}
+
+.ui-preview {
+    background-color: #f5f5f5;
+    padding: 1.5rem;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    color: #333;
+    max-width: 300px;  /* UIプレビューの最大幅を設定 */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product-info {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.product-info h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+}
+
+.price {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.discounted-price {
+    color: #e94560;
+    font-weight: bold;
+}
+
+.campaign {
+    color: #e94560;
+    font-weight: bold;
+    margin: 0.5rem 0;
+}
+
+.ui-preview button {
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.add-to-cart {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.no-thanks {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.prominent {
+    background-color: #ff4444;
+    color: white;
+    font-weight: bold;
+}
+
+.subtle {
+    background-color: #f1f1f1;
+    color: #999;
+    font-size: 0.9em;
+}
+
+/* デザインAのスタイル */
+.design-option:first-child .add-to-cart {
+    background-color: #ff4444;
+    color: white;
+    font-weight: bold;
+}
+
+.design-option:first-child .no-thanks {
+    background-color: #f1f1f1;
+    color: #999;
+    font-size: 0.9em;
+}
+
+/* デザインBのスタイル */
+.design-option:last-child .add-to-cart,
+.design-option:last-child .no-thanks {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.product-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+/* 説明画面のスタイル */
+#tutorial-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #0a0a1a, #1a1a2e);
+    padding: 2rem;
+}
+
+.tutorial-container {
+    background-color: rgba(42, 42, 42, 0.95);
+    border-radius: 15px;
+    padding: 2rem;
+    max-width: 800px;
+    width: 90%;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.tutorial-title {
+    color: #4ecdc4;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.tutorial-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.tutorial-section h3 {
+    color: #ff6b6b;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.tutorial-section p {
+    color: #ffffff;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.next-button {
+    display: block;
+    margin: 2rem auto 0;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    background-color: #e94560;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.next-button:hover {
+    background-color: #ff6b6b;
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* 既存のスタイルの後に追加 */
+#dark-pattern-button-container {
+    position: fixed;
+    left: 40px;
+    top: 70%;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+.dark-pattern-button {
+    background-color: #8b5cf6;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    animation: pulse 2s infinite;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.dark-pattern-explanation {
+    background-color: #2a2a2a;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 90%;
+    color: #ffffff;
+    position: relative;
+}
+
+.dark-pattern-explanation h2 {
+    color: #ff6b6b;
+    margin-bottom: 1rem;
+}
+
+.dark-pattern-explanation h3 {
+    color: #4ecdc4;
+    margin: 1.5rem 0 1rem;
+}
+
+.dark-pattern-explanation p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.dark-pattern-explanation ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.dark-pattern-explanation li {
+    margin-bottom: 0.5rem;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 8px 15px;
+    font-size: 1rem;
+}
+
+@keyframes highlight {
+    0%, 100% { outline: 2px solid transparent; }
+    50% { outline: 2px solid #ff6b6b; }
+}
+
+.highlight-dark-pattern {
+    position: relative;
+    cursor: pointer;
+}
+
+.highlight-dark-pattern::before {
+    content: '';
+    position: absolute;
+    top: auto;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    height: 110px;
+    border: 4px solid #ff6b6b;
+    border-radius: 30px;
+    animation: highlight 1s infinite;
+    pointer-events: none;
+    top: auto;
+    bottom: 0;
+    transform: translateY(-25px);
+}
+
+.highlight-dark-pattern::after {
+    content: 'クリックして説明を見る';
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.highlight-dark-pattern:hover::after {
+    opacity: 1;
+}
